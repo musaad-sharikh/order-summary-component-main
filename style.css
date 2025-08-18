@@ -1,0 +1,148 @@
+/* ==================== Reset ==================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ==================== Design Tokens ==================== */
+:root {
+  --pale-blue: hsl(225, 100%, 94%);
+  --very-pale-blue: hsl(225, 100%, 98%);
+  --dark-blue: hsl(223, 47%, 23%);
+  --desat-blue: hsl(224, 23%, 55%);
+  --bright-blue: hsl(245, 75%, 52%);
+  --bright-blue-hover: hsl(245, 75%, 60%);
+}
+
+/* ==================== Global (mobile-first) ==================== */
+html,
+body {
+  height: 100%;
+}
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  font-family: "Red Hat Display", sans-serif;
+  line-height: 1.5;
+  background: var(--pale-blue) url(images/pattern-background-desktop.svg)
+    no-repeat top center / cover;
+  color: var(--dark-blue);
+  padding: 24px;
+}
+
+/* ==================== Card ==================== */
+.card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  width: 100%;
+  max-width: 420px;
+}
+
+.card__media {
+  position: relative;
+  padding-top: 56.25%;
+}
+.card__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card__header {
+  padding: 24px;
+  text-align: center;
+}
+.card__title {
+  font-size: clamp(1.25rem, 1vw + 1rem, 1.5rem);
+  margin-bottom: 8px;
+}
+.card__description {
+  font-size: clamp(0.9rem, 0.5vw + 0.8rem, 1rem);
+  color: var(--desat-blue);
+}
+
+.card__plan {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 24px;
+  border-top: 1px solid var(--very-pale-blue);
+}
+.card__plan-icon {
+  width: 40px;
+  height: 40px;
+}
+.card__plan-title {
+  font-size: 1rem;
+  margin-bottom: 2px;
+}
+.card__plan-price {
+  font-size: 0.875rem;
+  color: var(--desat-blue);
+}
+.card__plan-change {
+  font-size: 0.875rem;
+  color: var(--bright-blue);
+  text-decoration: none;
+  justify-self: end;
+}
+
+.card__actions {
+  display: grid;
+  gap: 12px;
+  padding: 16px 24px 24px;
+  border-top: 1px solid var(--very-pale-blue);
+}
+.card__btn {
+  padding: 14px 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.card__btn--primary {
+  background: var(--bright-blue);
+  color: #fff;
+}
+.card__btn--secondary {
+  background: transparent;
+  color: var(--bright-blue);
+  border: 1px solid var(--bright-blue);
+}
+.card__btn--primary:hover {
+  background: var(--bright-blue-hover);
+}
+.card__btn--secondary:hover {
+  background: var(--bright-blue-hover);
+  color: #fff;
+}
+
+/* ==================== Breakpoints ==================== */
+@media (min-width: 768px) {
+  .card {
+    max-width: 440px;
+    border-radius: 16px;
+  }
+  .card__plan {
+    display: flex;
+  }
+  .card__plan-change {
+    margin-left: auto;
+  }
+  .card__actions {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card {
+    max-width: 480px;
+  }
+}
